@@ -3,7 +3,7 @@ name: default
 
 workspace:
   base: /go
-  path: src/github.com/oliver006/redis_exporter
+  path: src/github.com/garrygerber/redis_exporter
 
 
 services:
@@ -116,7 +116,7 @@ steps:
     settings:
       tags: "test"
       dockerfile: ./docker/Dockerfile
-      repo: oliver006/redis_exporter
+      repo: garrygerber/redis_exporter
       target: scratch
       dry_run: true
       build_args:
@@ -245,7 +245,7 @@ steps:
     settings:
       tags: "latest,latest-amd64,${DRONE_TAG},${DRONE_TAG}-amd64"
       dockerfile: ./docker/Dockerfile
-      repo: oliver006/redis_exporter
+      repo: garrygerber/redis_exporter
       target: scratch
       build_args:
         - 'TAG=${DRONE_TAG}'
@@ -268,7 +268,7 @@ steps:
     settings:
       tags: "latest-arm64,${DRONE_TAG}-arm64,alpine-arm64"
       dockerfile: ./docker/Dockerfile
-      repo: oliver006/redis_exporter
+      repo: garrygerber/redis_exporter
       target: alpine
       build_args:
         - 'TAG=${DRONE_TAG}'
@@ -291,7 +291,7 @@ steps:
     settings:
       tags: "latest-arm,${DRONE_TAG}-arm,alpine-arm"
       dockerfile: ./docker/Dockerfile
-      repo: oliver006/redis_exporter
+      repo: garrygerber/redis_exporter
       target: alpine
       build_args:
         - 'TAG=${DRONE_TAG}'
@@ -314,7 +314,7 @@ steps:
     settings:
       tags: "${DRONE_TAG}-alpine,alpine-amd64"
       dockerfile: ./docker/Dockerfile
-      repo: oliver006/redis_exporter
+      repo: garrygerber/redis_exporter
       target: alpine
       build_args:
         - 'TAG=${DRONE_TAG}'
@@ -339,8 +339,8 @@ steps:
         from_secret: docker_user
       password:
         from_secret: docker_pass
-      target: oliver006/redis_exporter:latest
-      template: "oliver006/redis_exporter:${DRONE_TAG}-ARCH"
+      target: garrygerber/redis_exporter:latest
+      template: "garrygerber/redis_exporter:${DRONE_TAG}-ARCH"
       platforms:
         - linux/amd64
         - linux/arm
@@ -363,8 +363,8 @@ steps:
         from_secret: docker_user
       password:
         from_secret: docker_pass
-      target: "oliver006/redis_exporter:${DRONE_TAG}"
-      template: "oliver006/redis_exporter:${DRONE_TAG}-ARCH"
+      target: "garrygerber/redis_exporter:${DRONE_TAG}"
+      template: "garrygerber/redis_exporter:${DRONE_TAG}-ARCH"
       platforms:
         - linux/amd64
         - linux/arm
@@ -387,8 +387,8 @@ steps:
         from_secret: docker_user
       password:
         from_secret: docker_pass
-      target: oliver006/redis_exporter:alpine
-      template: oliver006/redis_exporter:alpine-ARCH
+      target: garrygerber/redis_exporter:alpine
+      template: garrygerber/redis_exporter:alpine-ARCH
       platforms:
         - linux/amd64
         - linux/arm
@@ -411,7 +411,7 @@ steps:
     pull: if-not-exists
     settings:
       registry: "quay.io"
-      repo: "quay.io/oliver006/redis_exporter"
+      repo: "quay.io/garrygerber/redis_exporter"
       tags: "latest,latest-amd64,${DRONE_TAG},${DRONE_TAG}-amd64"
       dockerfile: ./docker/Dockerfile
       target: scratch
@@ -433,7 +433,7 @@ steps:
     pull: if-not-exists
     settings:
       registry: "quay.io"
-      repo: "quay.io/oliver006/redis_exporter"
+      repo: "quay.io/garrygerber/redis_exporter"
       tags: "latest-arm64,${DRONE_TAG}-arm64,alpine-arm64"
       dockerfile: ./docker/Dockerfile
       target: alpine
@@ -455,7 +455,7 @@ steps:
     pull: if-not-exists
     settings:
       registry: "quay.io"
-      repo: "quay.io/oliver006/redis_exporter"
+      repo: "quay.io/garrygerber/redis_exporter"
       tags: "latest-arm,${DRONE_TAG}-arm,alpine-arm"
       dockerfile: ./docker/Dockerfile
       target: alpine
@@ -477,7 +477,7 @@ steps:
     pull: if-not-exists
     settings:
       registry: "quay.io"
-      repo: "quay.io/oliver006/redis_exporter"
+      repo: "quay.io/garrygerber/redis_exporter"
       tags: "${DRONE_TAG}-alpine,alpine-amd64"
       dockerfile: ./docker/Dockerfile
       target: alpine
@@ -502,8 +502,8 @@ steps:
         from_secret: quay_user
       password:
         from_secret: quay_pass
-      target: quay.io/oliver006/redis_exporter:latest
-      template: "quay.io/oliver006/redis_exporter:${DRONE_TAG}-ARCH"
+      target: quay.io/garrygerber/redis_exporter:latest
+      template: "quay.io/garrygerber/redis_exporter:${DRONE_TAG}-ARCH"
       platforms:
         - linux/amd64
         - linux/arm
@@ -525,8 +525,8 @@ steps:
         from_secret: quay_user
       password:
         from_secret: quay_pass
-      target: "quay.io/oliver006/redis_exporter:${DRONE_TAG}"
-      template: "quay.io/oliver006/redis_exporter:${DRONE_TAG}-ARCH"
+      target: "quay.io/garrygerber/redis_exporter:${DRONE_TAG}"
+      template: "quay.io/garrygerber/redis_exporter:${DRONE_TAG}-ARCH"
       platforms:
         - linux/amd64
         - linux/arm
@@ -549,8 +549,8 @@ steps:
         from_secret: quay_user
       password:
         from_secret: quay_pass
-      target: quay.io/oliver006/redis_exporter:alpine
-      template: quay.io/oliver006/redis_exporter:alpine-ARCH
+      target: quay.io/garrygerber/redis_exporter:alpine
+      template: quay.io/garrygerber/redis_exporter:alpine-ARCH
       platforms:
         - linux/amd64
         - linux/arm

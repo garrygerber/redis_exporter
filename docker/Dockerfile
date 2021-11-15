@@ -12,7 +12,7 @@ ARG TAG="[no-tag]"
 ARG GOARCH
 
 RUN apk --no-cache add ca-certificates
-RUN BUILD_DATE=$(date +%F-%T) CGO_ENABLED=0 GOOS=linux GOARCH=${GOARCH} go build -o /redis_exporter \
+RUN BUILD_DATE=$(date +%F-%T) CGO_ENABLED=0 GOOS=linux GOARCH=$GOARCH go build -o /redis_exporter \
     -ldflags  "-s -w -extldflags \"-static\" -X main.BuildVersion=$TAG -X main.BuildCommitSha=$SHA1 -X main.BuildDate=$BUILD_DATE" .
 
 RUN [ "$GOARCH" = "amd64" ]  && /redis_exporter -version || ls -la /redis_exporter

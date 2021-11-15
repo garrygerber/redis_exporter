@@ -10,6 +10,7 @@ ADD . /go/src/github.com/oliver006/redis_exporter/
 ARG SHA1="[no-sha]"
 ARG TAG="[no-tag]"
 
+RUN uname -m
 RUN apk --no-cache add ca-certificates
 RUN BUILD_DATE=$(date +%F-%T) && CGO_ENABLED=0 GOOS=linux GOARCH=$GOARCH go build -o /redis_exporter \
     -ldflags  "-s -w -extldflags \"-static\" -X main.BuildVersion=$TAG -X main.BuildCommitSha=$SHA1 -X main.BuildDate=$BUILD_DATE" .
